@@ -61,9 +61,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pereval.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 # --- postgres ---
 # У меня возникли проблемы с установкой postgres на моём ноутбуке.
 
@@ -103,9 +100,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
