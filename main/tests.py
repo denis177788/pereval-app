@@ -20,7 +20,7 @@ class PerevalApiTestCase(APITestCase):
         level_2 = Level.objects.create(winter='2a', spring='2a', summer='2a', autumn='2a')
         self.pereval_1 = Pereval.objects.create(add_time=datetime.now(), user=user_1, coords=coords_1, level=level_1,
                                 beauty_title='beauty_title_1', title="title_1", other_titles='other_titles_1')
-        self.pereval_2 = Pereval.objects.create(add_time=datetime.now(), user=user_2, coords=coords_1, level=level_1,
+        self.pereval_2 = Pereval.objects.create(add_time=datetime.now(), user=user_2, coords=coords_2, level=level_2,
                                 beauty_title='beauty_title_2', title="title_2", other_titles='other_titles_2')
 
     def test_get_list(self):
