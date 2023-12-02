@@ -1,5 +1,9 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,7 +20,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -28,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -61,14 +65,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pereval.wsgi.application'
 
 
-# --- postgres ---
-# У меня возникли проблемы с установкой postgres на моём ноутбуке.
+# ------ Database ------
+
+# Примечание.
+# На моём ноутбуке возникли проблемы с установкой postgres.
+# Поэтому, я использовал postgres только на хостинге.
 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'Pereval',
-#         'USER': os.getenv('FSTR_DB_LOGIN'),
+#         'NAME': 'pereval',
+#         'USER': os.getenv('FSTR_DB_USER'),
 #         'PASSWORD': os.getenv('FSTR_DB_PASS'),
 #         'HOST': os.getenv('FSTR_DB_HOST'),
 #         'PORT': os.getenv('FSTR_DB_PORT'),
@@ -101,13 +108,16 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
