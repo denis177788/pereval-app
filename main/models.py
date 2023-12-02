@@ -2,7 +2,7 @@ from django.db import models
 
 
 class User(models.Model):
-   email = models.EmailField(max_length=64, unique=True)
+   email = models.EmailField(max_length=64, unique=False)
    phone = models.CharField(max_length=12, verbose_name='Телефон')
    fam = models.CharField(max_length=64, verbose_name='Фамилия')
    name = models.CharField(max_length=64, verbose_name='Имя')
@@ -63,7 +63,8 @@ class Pereval(models.Model):
 
 class Images(models.Model):
    pereval = models.ForeignKey(Pereval, on_delete=models.CASCADE, related_name='images')
-   data = models.ImageField(upload_to='images/', verbose_name='Изображение')
+   data = models.URLField(verbose_name='Изображение', null=True, blank=True)
+   # data = models.ImageField(upload_to='images/', verbose_name='Изображение')
    title = models.TextField(max_length=64, null=True, blank=True)
 
    def __str__(self):

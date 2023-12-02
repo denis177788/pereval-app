@@ -4,21 +4,16 @@ from rest_framework import routers
 from main import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.shortcuts import redirect
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewset)
-router.register(r'coords', views.CoordsViewset)
-router.register(r'level', views.LevelViewset)
-router.register(r'images', views.ImagesViewest)
-router.register(r'pereval', views.PerevalViewest)
+router.register(r'submitData', views.PerevalViewSet)
 
 
 urlpatterns = [
-   path('admin/', admin.site.urls),
-   path('', include(router.urls)),
-   path('api/submitData/', include(router.urls)),
-   path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
 ]
 
 
